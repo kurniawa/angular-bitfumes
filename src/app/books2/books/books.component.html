@@ -1,0 +1,36 @@
+<ul>
+  <li *ngFor="let book of books; let i = index" class="cursor-pointer">
+    {{ i + 1 }} {{ book.title | titlecase }} by {{ book.author }}
+    <div>
+      <img
+        *ngIf="isShowing"
+        src="{{ book.image }}"
+        alt="{{ book.title }}"
+        width="100"
+      />
+    </div>
+    <div>{{ book.price | currency : "Rp " }}</div>
+  </li>
+</ul>
+<button
+  (click)="handleClick()"
+  (mouseover)="handleMouseOver()"
+  [disabled]="isDisable"
+>
+  Submit
+</button>
+<input type="text" (change)="twoWayBinding($event)" />
+<p>{{ titleToSearch }}</p>
+<input type="text" [(ngModel)]="twoWayBindingReal" />
+<p>{{ twoWayBindingReal }}</p>
+<button (click)="toggleBook()">Toggle</button>
+<!--
+  Tidak disarankan menggunakan interpolation, yakni {{  }},
+  yang disarankan adalah property binding [src]="src" [alt]="alt"
+  dan interpolation juga tidak bisa dilakukan untuk contoh disabled diatas ini.
+
+  * Event Binding *
+  click dan mouseover panggil function, mudah dan asik sekali untuk dipahami.
+
+  * Two Way Binding *
+-->

@@ -1,0 +1,12 @@
+<ul class="flex">
+  <li *ngFor="let singleBook of books; let i = index" class="text-center mr-2">
+    <ng-container *ngIf="isShowing">
+      <app-book (emitBook)="addToCart($event)" [book]="singleBook"></app-book>
+    </ng-container>
+  </li>
+</ul>
+<!-- <div class="mt-5">
+  <button (click)="toggleShowing()" class="bg-pink-500 text-white rounded p-2">
+    toggle
+  </button>
+</div> -->
