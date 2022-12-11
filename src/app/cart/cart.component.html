@@ -1,0 +1,23 @@
+<!-- <p>cart works!</p> -->
+<main
+  class="container mx-auto mt-5 text-sm p-5 rounded bg-white drop-shadow shadow-inner"
+>
+  <!-- <app-cart></app-cart> -->
+  <h3 class="font-semibold text-xl">Your Cart:</h3>
+  <ng-container *ngIf="items.length !== 0; else cartEmpty">
+    <div
+      *ngFor="let item of items; let i = index"
+      class="flex items-center mb-2"
+    >
+      <span>{{ item.title }}</span>
+
+      <button
+        (click)="removeItem(i)"
+        class="bg-pink-500 text-white p-2 rounded ml-5"
+      >
+        Delete
+      </button>
+    </div>
+  </ng-container>
+  <ng-template #cartEmpty> Cart is empty. </ng-template>
+</main>

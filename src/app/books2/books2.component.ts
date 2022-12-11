@@ -21,7 +21,7 @@ export class BookssComponent implements OnInit {
 
   cart: Book[] = [];
   addToCart(book: Book) {
-    console.log(book);
+    // console.log(book);
   }
   isShowing: boolean = true;
   toggleShowing() {

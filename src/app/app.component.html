@@ -1,7 +1,37 @@
 <!-- <h1 class="text-blue-500">Hi</h1> -->
-<div
-  class="container mx-auto mt-5 text-sm p-5 rounded bg-white drop-shadow shadow-inner"
->
-  <!-- <app-books></app-books> -->
-  <app-books2></app-books2>
-</div>
+<nav class="flex bg-sky-200 text-xs font-semibold">
+  <a
+    class="px-5 py-3 border-r border-white text-sky-800 hover:bg-sky-300"
+    routerLink="/"
+    >Home</a
+  >
+  <a
+    class="px-5 py-3 border-r border-white text-sky-800 hover:bg-sky-300"
+    routerLink="/cart"
+    >Cart</a
+  >
+  <ng-container *ngIf="!isAuthenticated(); else logout">
+    <a
+      class="px-5 py-3 border-r border-white text-sky-800 hover:bg-sky-300"
+      routerLink="/login"
+      >Login</a
+    >
+    <a
+      class="px-5 py-3 border-r border-white text-sky-800 hover:bg-sky-300"
+      routerLink="/register"
+      >Register</a
+    >
+  </ng-container>
+
+  <ng-template #logout>
+    <button
+      class="px-5 py-3 border-r border-white text-sky-800 hover:bg-sky-300"
+      (click)="signout()"
+    >
+      Logout
+    </button>
+  </ng-template>
+</nav>
+<main class="m-2 text-slate-700 text-sm">
+  <router-outlet></router-outlet>
+</main>
